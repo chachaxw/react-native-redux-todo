@@ -36,10 +36,7 @@ const TodoList = props => {
     }
   };
 
-  const visibleTodos = getVisibleTodos(
-    todos,
-    visibilityFilter
-  );
+  const visibleTodos = getVisibleTodos(todos, visibilityFilter);
 
   const _leftOnPress = id => event => actions.toggleTodo(id);
   const _rightOnPress = id => event => actions.toggleStarTodo(id);

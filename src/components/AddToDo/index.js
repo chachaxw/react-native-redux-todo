@@ -1,12 +1,10 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import Dimensions from 'Dimensions';
 import { View, TextInput, StyleSheet } from 'react-native';
 
 import plusIcon from '../../icons/plus.png';
 import ButtonIcon from '../Buttons/ButtonIcon';
-
-const DEVICE_WIDTH = Dimensions.get('window').width;
+import { postTodo } from '../../api';
 
 const AddTodo = props => {
 	const { actions } = props;
@@ -14,9 +12,13 @@ const AddTodo = props => {
 	let textInput;
 	let textValue = '';
 
-	const _onSubmitEditing = () => {
-		if (textValue.length > 0) {
-			actions.addTodo(textValue);
+	const _onSubmitEditing = async () => {
+		if (textValue.trim() !== '' && textValue.length > 0) {
+			const res = await postTodo({todo: textValue});
+			console.log(res);
+			if (200 <= res.status < 300) {
+				actions.addTodo(textValue);
+			}
 		}
 		textInput.clear();
 	}
@@ -55,7 +57,8 @@ const styles = StyleSheet.create({
 		backgroundColor: 'rgba(0, 0, 0, 0.1)',
 	},
 	plusButton: {
-		marginLeft: 15,
+		marginLeft: 10,
+		marginRight: 10,
 	},
 	textInput: {
 		flex: 1,

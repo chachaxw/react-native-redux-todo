@@ -11,15 +11,17 @@ export default class App extends Component {
         <Scene key="root">
           <Scene
             title="TODO"
+            initial={true}
             key="mainScreen"
             animation='fade'
             component={MainScreen}
-            initial={true}/>
+          />
           <Scene 
             title="EDIT TODO"
             key="editScreen"
             animation='fade'
-            component={EditScreen} />
+            component={EditScreen}
+          />
         </Scene>
       </Router>
     );
