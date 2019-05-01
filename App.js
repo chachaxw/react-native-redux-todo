@@ -1,13 +1,11 @@
 import codePush from "react-native-code-push";
 import React, { Component } from 'react';
-import { AppRegistry, AsyncStorage } from 'react-native';
+import { AppRegistry } from 'react-native';
 import {Provider} from 'react-redux';
-import {persistStore} from 'redux-persist'
-import configureStore from './src/store/configureStore';
-import App from './src/components/';
+import { PersistGate } from 'redux-persist/integration/react';
 
-const store = configureStore();
-persistStore(store, {storage: AsyncStorage});
+import { store, persistor } from './src/store';
+import App from './src/components/';
 
 class todo extends Component {
   componentDidMount() {
@@ -17,7 +15,9 @@ class todo extends Component {
   render() {
     return (
       <Provider store={store}>
-        <App />
+        <PersistGate loading={null} persistor={persistor}>
+          <App />
+        </PersistGate>
       </Provider>
     );
   }

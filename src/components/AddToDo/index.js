@@ -1,11 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import Dimensions from 'Dimensions';
-import {
-	View,
-	TextInput,
-	StyleSheet,
-} from 'react-native';
+import { View, TextInput, StyleSheet } from 'react-native';
 
 import plusIcon from '../../icons/plus.png';
 import ButtonIcon from '../Buttons/ButtonIcon';
@@ -13,11 +9,7 @@ import ButtonIcon from '../Buttons/ButtonIcon';
 const DEVICE_WIDTH = Dimensions.get('window').width;
 
 const AddTodo = props => {
-	const {
-		todos,
-		actions,
-		style,
-	} = props;
+	const { actions } = props;
 
 	let textInput;
 	let textValue = '';

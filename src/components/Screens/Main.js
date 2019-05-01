@@ -3,12 +3,7 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as todoActions from '../../actions/todoActions';
-import {
-	View,
-	Text,
-	StyleSheet,
-	Platform,
-} from 'react-native';
+import { View, StyleSheet, Platform } from 'react-native';
 
 import Wallpaper from '../Wallpaper';
 import AddTodo from '../AddTodo';
@@ -19,11 +14,9 @@ class Main extends Component {
 	render() {
 		return (
 			<View style={styles.container}>
-				<Wallpaper>
-					<AddTodo {...this.props}/>
-					<Visibility {...this.props} />
-					<ListTodo {...this.props} />
-				</Wallpaper>
+				<AddTodo {...this.props}/>
+				<Visibility {...this.props} />
+				<ListTodo {...this.props} />
 			</View>
 		);
 	}

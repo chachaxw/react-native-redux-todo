@@ -1,16 +1,12 @@
-import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import {
-	StyleSheet,
-	Image,
-} from 'react-native';
+import { StyleSheet, Image } from 'react-native';
 
-import bgSrc from '../../images/bg.jpg';
+import wallpaper from '../../images/Wallpaper.png';
 
 export default class Wallpaper extends Component {
 	render() {
 		return (
-			<Image style={styles.picture} source={bgSrc}>
+			<Image style={styles.picture} source={wallpaper}>
 				{this.props.children}
 			</Image>
 		);
