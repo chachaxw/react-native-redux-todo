@@ -1,19 +1,11 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import {
-  StyleSheet,
-  ScrollView,
-  TouchableOpacity,
-  Text,
-  View,
-} from 'react-native';
+import {StyleSheet, ScrollView, TouchableOpacity, Text, View} from 'react-native';
 
 import ButtonIcon from '../Buttons/ButtonIcon';
 
 const List = props => {
   const {
-    todos,
-    actions,
     visibleTodos,
     leftOnPress,
     leftUnactiveIcon,
@@ -33,30 +25,43 @@ const List = props => {
     
     const deleteOrStar = () => {
       if (todo.isDone) {
-        return <ButtonIcon onPress={onDelete(todo.id)}
-                source={iconDelete}
-                style={styles.rightButton}
-                width={25} height={25} />
+        return (
+          <ButtonIcon 
+            onPress={onDelete(todo.id)}
+            source={iconDelete}
+            style={styles.rightButton}
+            width={25}
+            height={25}
+          />
+        );
       } else {
-        return <ButtonIcon onPress={rightOnPress(todo.id)}
-                source={starredOrNot}
-                style={styles.rightButton}
-                width={25} height={25} />
+        return (
+          <ButtonIcon
+            onPress={rightOnPress(todo.id)}
+            source={starredOrNot}
+            style={styles.rightButton}
+            width={25}
+            height={25}
+          />
+        );
       }
     }
 
     return (
       <View key={index} style={styles.row}>
-        <ButtonIcon onPress={leftOnPress(todo.id)}
+        <ButtonIcon 
+          onPress={leftOnPress(todo.id)}
           source={doneOrNot}
           style={styles.leftButton}
-          width={25} height={25} />
-        <TouchableOpacity onPress={textOnPress(todo.id, todo.text)}
+          width={25}
+          height={25}
+        />
+        <TouchableOpacity 
+          onPress={textOnPress(todo.id, todo.text)}
           style={styles.textButton}
           activeOpacity={0.7}>
-          <Text numberOfLines={1}
-            style={textDoneOrNot}>
-              { todo.text }
+          <Text numberOfLines={1} style={textDoneOrNot}>
+            {todo.text}
           </Text>
         </TouchableOpacity>
         { deleteOrStar() }
@@ -101,7 +106,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 10,
     marginVertical: 1,
     borderRadius: 2,
-    backgroundColor: 'rgba(255, 255, 255, 0.3)',
+    backgroundColor: 'rgba(0, 0, 0, 0.1)',
   },
 });
 

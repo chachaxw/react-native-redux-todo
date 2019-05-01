@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as todoActions from '../../actions/todoActions';
-import { StyleSheet, SafeAreaView, View, Platform } from 'react-native';
+import { StyleSheet, SafeAreaView, View } from 'react-native';
 
 import Wallpaper from '../Wallpaper';
 import EditTodo from '../EditTodo';
@@ -11,21 +11,16 @@ import EditTodo from '../EditTodo';
 class EditScreen extends Component {
 	render() {
 		return (
-			<SafeAreaView style={{flex: 1}}>
-				<View style={styles.container}>
-					<EditTodo {...this.props}/>
-				</View>
+			<SafeAreaView style={styles.container}>
+				<EditTodo {...this.props} />
 			</SafeAreaView>
 		);
 	}
 }
 
-const statusbarTop = (Platform.OS === 'ios') ? 20 : 0;
-
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
-		top: statusbarTop,
 		backgroundColor: '#f5f5f5',
 	}
 });

@@ -29,7 +29,6 @@ const AddTodo = props => {
 				style={styles.textInput}
 				autoCorrect={false}
 				placeholder='Add an item...'
-				placeholderTextColor='gray'
 				underlineColorAndroid='transparent'
 				returnKeyType='done'
 				onChangeText={_onChangeText}
@@ -49,23 +48,22 @@ const AddTodo = props => {
 
 const styles = StyleSheet.create({
 	container: {
-		flex: 0,
+		margin: 10,
+		display: 'flex',
+		flexDirection: 'row',
+		alignItems: 'center',
+		backgroundColor: 'rgba(0, 0, 0, 0.1)',
 	},
 	plusButton: {
-		marginRight: 15,
-		marginTop: -35,
-		alignItems: 'flex-end',
+		marginLeft: 15,
 	},
 	textInput: {
+		flex: 1,
 		alignSelf: 'center',
 		height: 40,
-		width: DEVICE_WIDTH - 20,
-		marginTop: 15,
 		paddingLeft: 10,
-		paddingRight: 35,
 		color: 'white',
 		borderRadius: 2,
-		backgroundColor: 'rgba(0, 0, 0, 0.1)',
 	},
 });
 

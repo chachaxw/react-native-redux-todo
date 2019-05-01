@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import { Actions, ActionConst } from 'react-native-router-flux';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 
 import List from './List';
 import iconCheck from '../../icons/check.png';

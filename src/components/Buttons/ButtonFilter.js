@@ -1,25 +1,21 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import {
-	TouchableOpacity,
-	Text,
-} from 'react-native';
+import { TouchableOpacity, Text } from 'react-native';
 
 const ButtonFilter = props => {
 	const {
 		children,
-		todos,
 		actions,
 		visibilityFilter,
 		filter,
 		txtStyle,
 		activeOpacity,
 		activeStyle,
-		UnactiveStyle,
+		inActiveStyle,
 	} = props;
 
 	const _onPress = () => actions.setVisibilityFilter(filter);
-	const activeOrNot = (filter === visibilityFilter) ? activeStyle : UnactiveStyle;
+	const activeOrNot = (filter === visibilityFilter) ? activeStyle : inActiveStyle;
 
 	return (
 		<TouchableOpacity activeOpacity={activeOpacity}
@@ -36,10 +32,10 @@ ButtonFilter.propTypes = {
 	actions: PropTypes.object.isRequired,
 	visibilityFilter: PropTypes.string.isRequired,
 	filter: PropTypes.string.isRequired,
-	txtStyle: PropTypes.number,
+	txtStyle: PropTypes.object,
 	activeOpacity: PropTypes.number,
-	activeStyle: PropTypes.number.isRequired,
-	UnactiveStyle: PropTypes.number.isRequired,
+	activeStyle: PropTypes.object.isRequired,
+	inActiveStyle: PropTypes.object.isRequired,
 };
 
 export default ButtonFilter;

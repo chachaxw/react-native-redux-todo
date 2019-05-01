@@ -1,10 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import {
-	View,
-	Image,
-	TouchableWithoutFeedback,
-} from 'react-native';
+import { View, Image, TouchableWithoutFeedback } from 'react-native';
 
 const ButtonIcon = props => {
 	const {
@@ -28,7 +24,7 @@ const ButtonIcon = props => {
 };
 
 ButtonIcon.propTypes = {
-	style: PropTypes.number,
+	style: PropTypes.object,
 	onPress: PropTypes.func.isRequired,
 	source: PropTypes.number.isRequired,
 	width: PropTypes.number.isRequired,

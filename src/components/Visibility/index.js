@@ -10,31 +10,34 @@ const Visibility = props => {
 			<ButtonFilter filter='SHOW_ALL'
 				txtStyle={styles.text}
 				activeStyle={styles.btnClicked}
-				UnactiveStyle={styles.btnUnclicked}
+				inActiveStyle={styles.btnUnclicked}
 				activeOpacity={0.7}
 				{...props} >
 					View All
 			</ButtonFilter>
-			<ButtonFilter filter='SHOW_ACTIVE'
+			<ButtonFilter
+				filter='SHOW_ACTIVE'
 				txtStyle={styles.text}
 				activeStyle={styles.btnClicked}
-				UnactiveStyle={styles.btnUnclicked}
+				inActiveStyle={styles.btnUnclicked}
 				activeOpacity={0.7}
 				{...props} >
 					Active
 			</ButtonFilter>
-			<ButtonFilter filter='SHOW_COMPLETED'
+			<ButtonFilter
+				filter='SHOW_COMPLETED'
 				txtStyle={styles.text}
 				activeStyle={styles.btnClicked}
-				UnactiveStyle={styles.btnUnclicked}
+				inActiveStyle={styles.btnUnclicked}
 				activeOpacity={0.7}
 				{...props} >
 					Completed
 			</ButtonFilter>
-			<ButtonFilter filter='SHOW_FAVORITE'
+			<ButtonFilter
+				filter='SHOW_FAVORITE'
 				txtStyle={styles.text}
 				activeStyle={styles.btnClicked}
-				UnactiveStyle={styles.btnUnclicked}
+				inActiveStyle={styles.btnUnclicked}
 				activeOpacity={0.7}
 				{...props} >
 					Favorite
@@ -48,7 +51,6 @@ const styles = StyleSheet.create({
 		flex: 0,
 		flexDirection: 'row',
 		justifyContent: 'space-around',
-		marginTop: 15,
 		marginBottom: 10,
 	},
 	text: {
@@ -58,11 +60,11 @@ const styles = StyleSheet.create({
 	},
 	btnClicked: {
 		borderRadius: 5,
-		backgroundColor: 'rgba(0, 0, 0, 0.4)',
+		backgroundColor: 'rgba(0, 0, 0, 0.2)',
 	},
 	btnUnclicked: {
 		borderRadius: 5,
-		backgroundColor: 'rgba(255, 255, 255, 0.3)',
+		backgroundColor: 'rgba(0, 0, 0, 0.1)',
 	}
 });
 

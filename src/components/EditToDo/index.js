@@ -1,34 +1,84 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { View, Image, TouchableWithoutFeedback } from 'react-native';
+import { Actions, ActionConst } from 'react-native-router-flux';
+import { StyleSheet, ScrollView, View, Text, TextInput, Image, TouchableOpacity } from 'react-native';
 
-const ButtonIcon = props => {
-	const {
-		style,
-		onPress,
-		source,
-		width,
-		height,
-	} = props;
+import backIcon from '../../icons/back.png';
 
-	const _onPress = () => onPress();
+const EditTodo = props => {
+	const { actions, id, text } = props;
+	let textValue = text;
+
+	const _onPress = () => {
+		actions.editTodo(id, textValue);
+		Actions.mainScreen({type: ActionConst.RESET});
+	}
+
+	const _onChangeText = value => textValue = value;
 
 	return (
-		<View style={style}>
-			<TouchableWithoutFeedback onPress={_onPress}
-				hitSlop={{top: 20, left: 20, bottom: 20, right: 20}}>
-				<Image source={source} style={{width, height}} />
-			</TouchableWithoutFeedback>
-		</View>
+		<ScrollView style={styles.container}>
+			<View style={styles.textInputWrapper}>
+				<TextInput
+					style={styles.textInput}
+					onChangeText={_onChangeText}
+					autoCapitalize='none'
+					autoCorrect={false}
+					multiline={true}>
+						<Text style={styles.text}>{text}</Text>
+				</TextInput>
+			</View>
+			<View style={styles.btnWrapper}>
+				<TouchableOpacity 
+					onPress={_onPress}
+					activeOpacity={0.8}
+					style={styles.btn}>
+						<Image source={backIcon} style={styles.image}/>
+				</TouchableOpacity>
+			</View>
+		</ScrollView>
 	);
+}
+
+EditTodo.propTypes = {
+	todos: PropTypes.array,
+	actions: PropTypes.object.isRequired,
+	id: PropTypes.string.isRequired,
+	text: PropTypes.string.isRequired,
 };
 
-ButtonIcon.propTypes = {
-	style: PropTypes.number,
-	onPress: PropTypes.func.isRequired,
-	source: PropTypes.number.isRequired,
-	width: PropTypes.number.isRequired,
-	height: PropTypes.number.isRequired,
-};
+const styles = StyleSheet.create({
+	container: {
+		flex: 1,
+	},
+	textInputWrapper: {
+		marginTop: 12,
+		borderRadius: 4,
+		marginHorizontal: 12,
+	},
+	textInput: {
+		height: 100,
+		paddingHorizontal: 10,
+		backgroundColor: 'rgba(0, 0, 0, 0.1)',
+	},
+	text: {
+		color: 'white',
+		backgroundColor: 'transparent',
+	},
+	btnWrapper: {
+		alignItems: 'center',
+	},
+	btn: {
+		margin: 20,
+		width: 40,
+		height: 40,
+		borderRadius: 100,
+		backgroundColor: 'rgba(255, 255, 255, 0.3)',
+	},
+	image: {
+		width: 40,
+		height: 40,
+	},
+});
 
-export default ButtonIcon;
+export default EditTodo;
