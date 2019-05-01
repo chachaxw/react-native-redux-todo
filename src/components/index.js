@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Scene, Router} from 'react-native-router-flux';
+import { Scene, Router } from 'react-native-router-flux';
 
 import MainScreen from './Screens/Main';
 import EditScreen from './Screens/Edit';

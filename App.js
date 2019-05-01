@@ -1,17 +1,11 @@
-import codePush from "react-native-code-push";
 import React, { Component } from 'react';
-import { AppRegistry } from 'react-native';
-import {Provider} from 'react-redux';
+import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 
 import { store, persistor } from './src/store';
 import App from './src/components/';
 
-class todo extends Component {
-  componentDidMount() {
-    codePush.sync({installMode: codePush.InstallMode.IMMEDIATE});
-  }
-
+class TODO extends Component {
   render() {
     return (
       <Provider store={store}>
@@ -23,4 +17,4 @@ class todo extends Component {
   }
 }
 
-AppRegistry.registerComponent('todo', () => codePush(todo));
+export default TODO;

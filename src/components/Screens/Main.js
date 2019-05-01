@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as todoActions from '../../actions/todoActions';
-import { View, StyleSheet, Platform } from 'react-native';
+import { SafeAreaView, View, StyleSheet, Platform } from 'react-native';
 
 import Wallpaper from '../Wallpaper';
 import AddTodo from '../AddTodo';
@@ -13,11 +13,13 @@ import ListTodo from '../ListTodo';
 class Main extends Component {
 	render() {
 		return (
-			<View style={styles.container}>
-				<AddTodo {...this.props}/>
-				<Visibility {...this.props} />
-				<ListTodo {...this.props} />
-			</View>
+			<SafeAreaView style={{flex: 1}}>
+				<View style={styles.container}>
+					<AddTodo {...this.props}/>
+					<Visibility {...this.props} />
+					<ListTodo {...this.props} />
+				</View>
+			</SafeAreaView>
 		);
 	}
 }
@@ -28,6 +30,7 @@ const styles = StyleSheet.create({
 	container: {
 		flex: 1,
 		top: statusbarTop,
+		backgroundColor: '#f5f5f5',
 	},
 });
 

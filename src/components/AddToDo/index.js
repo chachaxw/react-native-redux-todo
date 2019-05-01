@@ -25,7 +25,8 @@ const AddTodo = props => {
 
 	return (
 		<View style={styles.container}>
-			<TextInput style={styles.textInput}
+			<TextInput
+				style={styles.textInput}
 				autoCorrect={false}
 				placeholder='Add an item...'
 				placeholderTextColor='gray'
@@ -33,11 +34,15 @@ const AddTodo = props => {
 				returnKeyType='done'
 				onChangeText={_onChangeText}
 				onSubmitEditing={_onSubmitEditing}
-				ref={el => textInput = el} />
-			<ButtonIcon onPress={_onSubmitEditing}
+				ref={el => textInput = el}
+			/>
+			<ButtonIcon 
+				onPress={_onSubmitEditing}
 				source={plusIcon}
 				style={styles.plusButton}
-				width={30} height={30} />
+				width={30}
+				height={30}
+			/>
 		</View>
 	);
 };
@@ -60,7 +65,7 @@ const styles = StyleSheet.create({
 		paddingRight: 35,
 		color: 'white',
 		borderRadius: 2,
-		backgroundColor: 'rgba(0, 0, 0, 0.3)',
+		backgroundColor: 'rgba(0, 0, 0, 0.1)',
 	},
 });
 
