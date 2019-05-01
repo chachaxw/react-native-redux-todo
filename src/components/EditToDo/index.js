@@ -4,12 +4,14 @@ import { Actions, ActionConst } from 'react-native-router-flux';
 import { StyleSheet, ScrollView, View, Text, TextInput, Image, TouchableOpacity } from 'react-native';
 
 import backIcon from '../../icons/back.png';
+import { putTodo } from '../../api';
 
 const EditTodo = props => {
 	const { actions, id, text } = props;
 	let textValue = text;
 
-	const _onPress = () => {
+	const _onPress = async () => {
+		await putTodo(id, {todo: textValue});
 		actions.editTodo(id, textValue);
 		Actions.mainScreen({type: ActionConst.RESET});
 	}
@@ -31,7 +33,7 @@ const EditTodo = props => {
 			<View style={styles.btnWrapper}>
 				<TouchableOpacity 
 					onPress={_onPress}
-					activeOpacity={0.8}
+					activeOpacity={1}
 					style={styles.btn}>
 						<Image source={backIcon} style={styles.image}/>
 				</TouchableOpacity>
@@ -73,11 +75,13 @@ const styles = StyleSheet.create({
 		width: 40,
 		height: 40,
 		borderRadius: 100,
-		backgroundColor: 'rgba(255, 255, 255, 0.3)',
+		alignItems: 'center',
+		justifyContent: 'center',
+		backgroundColor: 'rgba(0, 0, 0, 0.4)',
 	},
 	image: {
-		width: 40,
-		height: 40,
+		width: 32,
+		height: 32,
 	},
 });
 

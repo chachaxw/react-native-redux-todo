@@ -9,8 +9,15 @@ import Wallpaper from '../Wallpaper';
 import AddTodo from '../AddTodo';
 import Visibility from '../Visibility';
 import ListTodo from '../ListTodo';
+import { getTodos } from '../../api';
 
 class Main extends Component {
+	async componentDidMount() {
+		const { actions } = this.props;
+		const result = await getTodos();
+		actions.loadTodos(result);
+	}
+
 	render() {
 		return (
 			<SafeAreaView style={styles.container}>

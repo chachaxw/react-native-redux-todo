@@ -4,6 +4,7 @@ import { Actions, ActionConst } from 'react-native-router-flux';
 import { StyleSheet, View } from 'react-native';
 
 import List from './List';
+import { deleteTodo } from '../../api';
 import iconCheck from '../../icons/check.png';
 import iconUncheck from '../../icons/uncheck.png';
 import iconStar from '../../icons/star.png';
@@ -11,11 +12,7 @@ import iconUnStar from '../../icons/unstar.png';
 import iconDelete from '../../icons/remove.png';
 
 const TodoList = props => {
-  const {
-    todos,
-    actions,
-    visibilityFilter,
-  } = props;
+  const { todos, actions, visibilityFilter } = props;
 
   const getVisibleTodos = (allTodos, whatFilter) => {
     switch(whatFilter) {
@@ -40,7 +37,10 @@ const TodoList = props => {
 
   const _leftOnPress = id => event => actions.toggleTodo(id);
   const _rightOnPress = id => event => actions.toggleStarTodo(id);
-  const _onDelete = id => event => actions.removeTodo(id);
+  const _onDelete = id => async (event) => {
+    await deleteTodo(id);
+    actions.removeTodo(id)
+  };
   const _textOnPress = (id, text) => event => {
     actions.toggleEditTodo(id);
     Actions.editScreen({

@@ -1,23 +1,25 @@
 import {
   ADD_TODO, TOGGLE_TODO, EDIT_TODO, TOGGLE_STAR_TODO,
-  TOGGLE_EDIT_TODO, REMOVE_TODO, FILTER_TODO,
+  TOGGLE_EDIT_TODO, REMOVE_TODO, FILTER_TODO, LOAD_TODOS,
 } from '../actions/todoActions';
 
 const todoReducer = (state = [], action) => {
   switch(action.type) {
+    case LOAD_TODOS:
+      return action.payload;
 
     case ADD_TODO:
       return [
         action.payload,
         ...state
       ];
-
     case TOGGLE_TODO:
+
       return state.map(todo => {
         if(todo.id !== action.id) {
           return todo;
         }
-        
+
         return Object.assign({}, todo, { isDone: !todo.isDone });
       });
 
@@ -27,7 +29,10 @@ const todoReducer = (state = [], action) => {
           return todo;
         }
 
-        return Object.assign({}, todo, { text: action.text });
+        return {
+          text: action.text,
+          ...todo,
+        };
       });
 
     case TOGGLE_STAR_TODO:
@@ -61,7 +66,6 @@ const todoReducer = (state = [], action) => {
     default:
       return state;
   }
-
 }
 
 export default todoReducer;

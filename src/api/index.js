@@ -13,18 +13,51 @@ const options = {
 
 const AxiosInstance = axios.create(options);
 
-export function getTodos(params) {
-  return AxiosInstance.get(`/getTodos`, params);
+export async function getTodos(params) {
+  const res = await AxiosInstance.get(`/getTodos`, params);
+  if (res.data) {
+    const result = res.data.map((item) => ({
+      id: item._id,
+      text: item.todo,
+      isDone: false,
+      isEditing: false,
+      isStarred: false,
+    }));
+    return result.reverse();
+  }
+  return [];
 }
 
-export function postTodo(params) {
-  return AxiosInstance.post(`/`, params);
+export async function postTodo(params) {
+  const res = await AxiosInstance.post(`/`, params);
+  if (res.data && res.data.document) {
+    const document = res.data.document;
+    return {
+      text: document.todo,
+      id: document._id,
+      isDone: false,
+      isEditing: false,
+      isStarred: false,
+    };
+  }
+  return;
 }
 
-export function putTodo(id, params) {
-  return AxiosInstance.put(`/${id}`, params);
+export async function putTodo(id, params) {
+  const res = await AxiosInstance.put(`/${id}`, params);
+  if (res.data && res.data.value) {
+    const value = res.data.value;
+    return {
+      text: value.todo,
+      id: value._id,
+      isDone: false,
+      isEditing: false,
+      isStarred: false,
+    };
+  }
+  return;
 }
 
 export function deleteTodo(id) {
-  return AxiosInstance.put(`/${id}`);
+  return AxiosInstance.delete(`/${id}`);
 }

@@ -59,7 +59,7 @@ const List = props => {
         <TouchableOpacity 
           onPress={textOnPress(todo.id, todo.text)}
           style={styles.textButton}
-          activeOpacity={0.7}>
+          activeOpacity={0.8}>
           <Text numberOfLines={1} style={textDoneOrNot}>
             {todo.text}
           </Text>
