@@ -6,23 +6,13 @@ import { store, persistor } from './src/store';
 import App from './src/components/';
 
 // With redux persist
-// class TODO extends Component {
-//   render() {
-//     return (
-//       <Provider store={store}>
-//         <PersistGate loading={null} persistor={persistor}>
-//           <App />
-//         </PersistGate>
-//       </Provider>
-//     );
-//   }
-// }
-
 class TODO extends Component {
   render() {
     return (
       <Provider store={store}>
-        <App />
+        <PersistGate loading={null} persistor={persistor}>
+          <App />
+        </PersistGate>
       </Provider>
     );
   }

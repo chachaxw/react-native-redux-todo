@@ -7,6 +7,9 @@ export const TOGGLE_EDIT_TODO = 'TOGGLE_EDIT_TODO';
 export const TOGGLE_STAR_TODO = 'TOGGLE_STAR_TODO';
 export const SET_VISIBILITY_FILTER = 'SET_VISIBILITY_FILTER';
 
+// generate unique id
+const uuid = () => Math.random().toString(34).slice(2);
+
 export function loadTodos(todos) {
   return {
     type: LOAD_TODOS,
@@ -14,14 +17,15 @@ export function loadTodos(todos) {
   };
 }
 
-export function addTodo(todo) {
+export function addTodo(text) {
   return {
     type: ADD_TODO,
     payload: {
+      id: uuid(),
       isDone: false,
       isEditing: false,
       isStarred: false,
-      ...todo,
+      text,
     }
   };
 }

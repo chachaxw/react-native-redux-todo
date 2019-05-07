@@ -14,10 +14,11 @@ const AddTodo = props => {
 
 	const _onSubmitEditing = async () => {
 		if (textValue.trim() !== '' && textValue.length > 0) {
-			const res = await postTodo({todo: textValue});
-			if (200 <= res.status < 300) {
-				actions.addTodo(res);
-			}
+			// const res = await postTodo({todo: textValue});
+			// if (200 <= res.status < 300) {
+			// 	actions.addTodo(res);
+			// }
+			actions.AddTodo(textValue);
 		}
 		textInput && textInput.clear();
 	}
