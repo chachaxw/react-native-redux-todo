@@ -5,7 +5,6 @@ import {bindActionCreators} from 'redux';
 import * as todoActions from '../../actions/todoActions';
 import { SafeAreaView, ScrollView, StyleSheet } from 'react-native';
 
-import Wallpaper from '../Wallpaper';
 import AddTodo from '../AddTodo';
 import Visibility from '../Visibility';
 import ListTodo from '../ListTodo';

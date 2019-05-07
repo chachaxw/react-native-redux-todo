@@ -4,14 +4,12 @@ import { Actions, ActionConst } from 'react-native-router-flux';
 import { StyleSheet, ScrollView, View, Text, TextInput, Image, TouchableOpacity } from 'react-native';
 
 import backIcon from '../../icons/back.png';
-import { putTodo } from '../../api';
 
 const EditTodo = props => {
 	const { actions, id, text } = props;
 	let textValue = text;
 
-	const _onPress = async () => {
-		await putTodo(id, {todo: textValue});
+	const _onPress = () => {
 		actions.editTodo(id, textValue);
 		Actions.mainScreen({type: ActionConst.RESET});
 	}

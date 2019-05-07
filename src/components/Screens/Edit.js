@@ -5,7 +5,6 @@ import { bindActionCreators } from 'redux';
 import * as todoActions from '../../actions/todoActions';
 import { StyleSheet, SafeAreaView } from 'react-native';
 
-import Wallpaper from '../Wallpaper';
 import EditTodo from '../EditTodo';
 
 class EditScreen extends Component {

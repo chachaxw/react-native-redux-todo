@@ -12,12 +12,8 @@ const AddTodo = props => {
 	let textInput;
 	let textValue = '';
 
-	const _onSubmitEditing = async () => {
+	const _onSubmitEditing = () => {
 		if (textValue.trim() !== '' && textValue.length > 0) {
-			// const res = await postTodo({todo: textValue});
-			// if (200 <= res.status < 300) {
-			// 	actions.addTodo(res);
-			// }
 			actions.AddTodo(textValue);
 		}
 		textInput && textInput.clear();
