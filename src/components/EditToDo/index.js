@@ -5,7 +5,7 @@ import { StyleSheet, ScrollView, View, Text, TextInput, Image, TouchableOpacity 
 
 import backIcon from '../../icons/back.png';
 
-const EditTodo = props => {
+const EditToDo = props => {
 	const { actions, id, text } = props;
 	let textValue = text;
 
@@ -40,7 +40,7 @@ const EditTodo = props => {
 	);
 }
 
-EditTodo.propTypes = {
+EditToDo.propTypes = {
 	todos: PropTypes.array,
 	actions: PropTypes.object.isRequired,
 	id: PropTypes.string.isRequired,
@@ -83,4 +83,4 @@ const styles = StyleSheet.create({
 	},
 });
 
-export default EditTodo;
+export default EditToDo;

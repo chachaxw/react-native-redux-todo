@@ -4,9 +4,8 @@ import { View, TextInput, StyleSheet } from 'react-native';
 
 import plusIcon from '../../icons/plus.png';
 import ButtonIcon from '../Buttons/ButtonIcon';
-import { postTodo } from '../../api';
 
-const AddTodo = props => {
+const AddToDo = props => {
 	const { actions } = props;
 
 	let textInput;
@@ -14,7 +13,7 @@ const AddTodo = props => {
 
 	const _onSubmitEditing = () => {
 		if (textValue.trim() !== '' && textValue.length > 0) {
-			actions.AddTodo(textValue);
+			actions.addTodo(textValue);
 		}
 		textInput && textInput.clear();
 	}
@@ -66,9 +65,9 @@ const styles = StyleSheet.create({
 	},
 });
 
-AddTodo.propTypes = {
+AddToDo.propTypes = {
 	todos: PropTypes.array.isRequired,
 	actions: PropTypes.object.isRequired,
 };
 
-export default AddTodo;
+export default AddToDo;

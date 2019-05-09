@@ -5,13 +5,13 @@ import { bindActionCreators } from 'redux';
 import * as todoActions from '../../actions/todoActions';
 import { StyleSheet, SafeAreaView } from 'react-native';
 
-import EditTodo from '../EditTodo';
+import EditToDo from '../EditToDo';
 
 class EditScreen extends Component {
 	render() {
 		return (
 			<SafeAreaView style={styles.container}>
-				<EditTodo {...this.props} />
+				<EditToDo {...this.props} />
 			</SafeAreaView>
 		);
 	}

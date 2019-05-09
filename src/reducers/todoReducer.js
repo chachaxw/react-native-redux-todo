@@ -13,6 +13,7 @@ const todoReducer = (state = [], action) => {
         action.payload,
         ...state
       ];
+
     case TOGGLE_TODO:
 
       return state.map(todo => {
@@ -29,10 +30,7 @@ const todoReducer = (state = [], action) => {
           return todo;
         }
 
-        return {
-          text: action.text,
-          ...todo,
-        };
+        return Object.assign({}, todo, { text: action.text });
       });
 
     case TOGGLE_STAR_TODO:

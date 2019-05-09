@@ -5,9 +5,9 @@ import {bindActionCreators} from 'redux';
 import * as todoActions from '../../actions/todoActions';
 import { SafeAreaView, ScrollView, StyleSheet } from 'react-native';
 
-import AddTodo from '../AddTodo';
+import AddToDo from '../AddToDo';
 import Visibility from '../Visibility';
-import ListTodo from '../ListTodo';
+import ToDoList from '../ListToDo';
 import { getTodos } from '../../api';
 
 class Main extends Component {
@@ -21,9 +21,9 @@ class Main extends Component {
 		return (
 			<SafeAreaView style={styles.container}>
 				<ScrollView>
-					<AddTodo {...this.props}/>
+					<AddToDo {...this.props}/>
 					<Visibility {...this.props} />
-					<ListTodo {...this.props} />
+					<ToDoList {...this.props} />
 				</ScrollView>
 			</SafeAreaView>
 		);

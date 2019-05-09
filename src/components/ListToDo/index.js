@@ -10,7 +10,7 @@ import iconStar from '../../icons/star.png';
 import iconUnStar from '../../icons/unstar.png';
 import iconDelete from '../../icons/remove.png';
 
-const TodoList = props => {
+const ToDoList = props => {
   const { todos, actions, visibilityFilter } = props;
 
   const getVisibleTodos = (allTodos, whatFilter) => {
@@ -71,11 +71,11 @@ const styles = StyleSheet.create({
   },
 });
 
-TodoList.propTypes = {
+ToDoList.propTypes = {
   style: PropTypes.number,
   todos: PropTypes.array.isRequired,
   actions: PropTypes.object.isRequired,
   visibilityFilter: PropTypes.string.isRequired,
 };
 
-export default TodoList;
+export default ToDoList;
